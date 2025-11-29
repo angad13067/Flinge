@@ -1,0 +1,87 @@
+* {
+  outline: 1px solid red;
+}
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+  }
+
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  figure,
+  blockquote,
+  dl,
+  dd {
+    margin: 0;
+  }
+
+  [role="list"] {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    min-block-size: 100vh;
+    line-height: 1.6;
+  }
+
+  h1,
+  h2,
+  h3,
+  button,
+  input,
+  label {
+    line-height: 1.1;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+  }
+
+  p,
+  li {
+    text-wrap: pretty;
+  }
+
+  img,
+  picture {
+    max-inline-size: 100%;
+    display: block;
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+}
+
+.card {
+  width: 300px;
+  height: 400px;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
