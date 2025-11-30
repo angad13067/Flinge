@@ -101,7 +101,7 @@
   .hinge-card {
     border-radius: 24px;
     background: #fff;
-    box-shadow: 0 10px 25px red;
+    box-shadow: 0 10px 25px grey;
     overflow: hidden;
   }
 
@@ -190,3 +190,9 @@
     opacity: 0.75;
   }
 }
+
+/*TODO
+1)remove red border
+2)add styles, font, colors
+3)the card ndame should be sticky?
+4) hide matches and support bar and move to bottom*/
