@@ -23,20 +23,49 @@
 
     <main>
       <h2>Help me plan the perfect date.</h2>
-      <div class="card">
-        <h2 class="card-title">Starbucks</h2>
-        <button id="undo" aria-label="Undo">Undo</button>
-        <img
-          class="card-image"
-          src="/assets/arcade.webp"
-          alr="date-idea-picture"
-        />
-        <button id="skip" aria-label="Skip">
-          <img src="/assets/cancel.png" alt="card-cancel-icon" />
-        </button>
-        <button id="like" aria-label="Like">
-          <img src="/assets/heart.png" />
-        </button>
+
+      <div class="card-container">
+        <div class="card-header">
+          <h2 class="card-title">Starbucks</h2>
+          <button class="round-btn undo-btn" aria-label="Undo">
+            <img src="/assets/undo.png" alt="Undo" />
+          </button>
+        </div>
+
+        <!-- ONE card: image + details inside -->
+        <div class="hinge-card">
+          <div class="image-card">
+            <img
+              src="/assets/arcade.webp"
+              alt="Starbucks date"
+              class="card-photo"
+            />
+
+            <div class="card-actions">
+              <button class="round-btn skip-btn" aria-label="Skip">
+                <img src="/assets/cancel.png" alt="Skip" />
+              </button>
+              <button class="round-btn like-btn" aria-label="Like">
+                <img src="/assets/heart.png" alt="Like" />
+              </button>
+            </div>
+          </div>
+
+          <div class="details-card">
+            <div class="detail-row">
+              <span class="icon">📍</span>
+              <span>Nearby Starbucks</span>
+            </div>
+            <div class="detail-row">
+              <span class="icon">📅</span>
+              <span>Weekend afternoon</span>
+            </div>
+            <div class="detail-row">
+              <span class="icon">⏰</span>
+              <span>1–2 hours</span>
+            </div>
+          </div>
+        </div>
       </div>
     </main>
   </body>
