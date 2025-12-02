@@ -71,12 +71,57 @@
 }
 
 @layer base {
+  :root {
+    /*colors*/
+    --hinge-white: #fffefd;
+    --hinge-black: #1a1a1a;
+    --midnight: #3e1768;
+    --aubergine: #67295f;
+    --lilac: #75457d;
+    --mauve: #9f81a5;
+    --mist: #c7c7e5;
+    --kelp: #097270;
+    --coral-warn: #d45847;
+    --stone: #484848;
+
+    /*font family*/
+    --ff-serif-display: "Crimson Pro", "Times new Roman", serif;
+    --ff-sans-heading: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont,
+      "Segoe UI", sans-serif;
+
+    /*set up font weights*/
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-semibold: 600;
+    --fw-bold: 700;
+
+    /*Type scale*/
+    --fs-100: 0.75rem; /* 12px  - small labels / metadata */
+    --fs-200: 0.875rem; /* 14px  - small body */
+    --fs-300: 1rem; /* 16px  - base body */
+    --fs-400: 1.125rem; /* 18px  - comfy body / lead */
+    --fs-500: 1.5rem; /* 24px  - subhead */
+    --fs-600: 2rem; /* 32px  - functional headline */
+    --fs-700: clamp(2.5rem, 5vw, 3.5rem); /* ~40–56px main headline */
+
+    /*Line heights*/
+    --lh-tight: 1.1;
+    --lh-comfy: 1.4;
+  }
   body {
     padding: 16px;
-    font-family: "Courier New", Courier, monospace;
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    font-family: var(--ff-sans);
+    font-weight: var(--fw-regular);
+    font-size: var(--fs-300);
+    line-height: var(--lh-comfy); /* 140%*/
+    letter-spacing: var(--ls-body); /* tracking 10 */
+    color: var(--clr-text);
+    background-color: var(--clr-bg);
+    margin: 0;
   }
   main {
     width: 100%;
@@ -192,7 +237,6 @@
 }
 
 /*TODO
-1)remove red border
 2)add styles, font, colors
 3)the card ndame should be sticky?
 4) hide matches and support bar and move to bottom*/
