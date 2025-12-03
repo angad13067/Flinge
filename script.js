@@ -16,11 +16,11 @@ function onScroll() {
     return;
   }
 
-  //scrolling down and past minhidey hide footer
+  //scrolling down and past minhidey -> hide footer
   if (currentY > lastScrollY + threshold && currentY > minHideY) {
     footer.classList.add("site-footer-hidden");
   }
-  //scrolling up show footer
+  //scrolling up -> show footer
   else if (currentY < lastScrollY - threshold) {
     footer.classList.remove("site-footer-hidden");
   }
