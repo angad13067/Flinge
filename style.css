@@ -113,27 +113,35 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    font-family: var(--ff-sans);
-    font-weight: var(--fw-regular);
-    font-size: var(--fs-300);
-    line-height: var(--lh-comfy); /* 140%*/
-    letter-spacing: var(--ls-body); /* tracking 10 */
-    color: var(--clr-text);
-    background-color: var(--clr-bg);
-    margin: 0;
   }
   main {
     width: 100%;
     padding-bottom: 64px; /*main bottom padding so it doesnt sit under footer*/
   }
 
+  .site-header {
+    padding-block: 1rem;
+  }
+
+  .site-header-inner {
+    display: flex;
+    gap: 0.5rem, 1rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .primary-navigation {
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+    }
+  }
   .site-footer {
     position: fixed;
     inset-inline: 0;
     inset-block-end: 0;
     z-index: 100;
-    background: var(--stone);
+    background: var(--hinge-black);
     border-top: 1px solid;
     transform: translateY(0);
     transition: transform 0.25s ease;
@@ -155,6 +163,7 @@
 
   .footer-item {
     background: transparent;
+    color: var(--stone);
     border: none;
     padding: 8px;
     font: inherit;
@@ -162,7 +171,7 @@
   }
 
   h1 {
-    font-family: var(--ff-serif-display);
+    font-family: var(--ff-sans-heading);
     font-size: var(--fs-700);
     font-weight: var(--fw-bold);
     line-height: var(--lh-tight);
@@ -170,23 +179,6 @@
 }
 
 @layer components {
-  .site-header {
-    padding-block: 1rem;
-  }
-
-  .site-header-inner {
-    display: flex;
-    gap: 0.5rem, 1rem;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  .primary-navigation {
-    ul {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem 1rem;
-    }
-  }
   .card-container {
     max-width: 420px;
     margin: 32px auto 0;
@@ -297,5 +289,14 @@
   .icon {
     font-size: 16px;
     opacity: 0.75;
+  }
+
+  .site-hook {
+    /*TRBL*/
+    padding: 50px 50px 60px 100px;
+    font-family: var(--ff-serif-display);
+    font-size: var(--fs-700);
+    font-weight: var(--fw-medium);
+    line-height: var(--lh-tight);
   }
 }
