@@ -104,7 +104,7 @@
     --fs-600: 2rem; /* 32px  - functional headline */
     --fs-700: clamp(2.5rem, 5vw, 3.5rem); /* ~40–56px main headline */
 
-    /*Line heights*/
+    /*Line heights tight for headings and comfy for text*/
     --lh-tight: 1.1;
     --lh-comfy: 1.4;
   }
@@ -125,6 +125,67 @@
   }
   main {
     width: 100%;
+    padding-bottom: 64px; /*main bottom padding so it doesnt sit under footer*/
+  }
+
+  .site-footer {
+    position: fixed;
+    inset-inline: 0;
+    inset-block-end: 0;
+    z-index: 100;
+    background: var(--stone);
+    border-top: 1px solid;
+    transform: translateY(0);
+    transition: transform 0.25s ease;
+  }
+
+  /*hide menu bar for when scrolling down*/
+  .site-footer-hidden {
+    transform: translateY(100%);
+  }
+
+  .site-footer-inner {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 8px 16px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .footer-item {
+    background: transparent;
+    border: none;
+    padding: 8px;
+    font: inherit;
+    cursor: pointer;
+  }
+
+  h1 {
+    font-family: var(--ff-serif-display);
+    font-size: var(--fs-700);
+    font-weight: var(--fw-bold);
+    line-height: var(--lh-tight);
+  }
+}
+
+@layer components {
+  .site-header {
+    padding-block: 1rem;
+  }
+
+  .site-header-inner {
+    display: flex;
+    gap: 0.5rem, 1rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .primary-navigation {
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+    }
   }
   .card-container {
     max-width: 420px;
@@ -176,8 +237,8 @@
   }
 
   .round-btn {
-    width: 64px;
-    height: 64px;
+    width: 54px;
+    height: 54px;
     border-radius: 50%;
     border: none;
     background: #ffffff;
@@ -199,7 +260,7 @@
 
   .round-btn:hover {
     transform: translateY(-2px) clase(1.05);
-    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.26);
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.18);
   }
 
   .undo-btn {
@@ -209,7 +270,10 @@
     border: 1px solid #e0e0e0;
   }
 
-  .undo-btn:hover {
+  .undo-btn:hover,
+  .skip-btn:hover,
+  .like-btn:hover,
+  .round-btn:hover {
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
   }
 
@@ -235,8 +299,3 @@
     opacity: 0.75;
   }
 }
-
-/*TODO
-2)add styles, font, colors
-3)the card ndame should be sticky?
-4) hide matches and support bar and move to bottom*/
