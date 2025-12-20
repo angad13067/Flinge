@@ -162,6 +162,7 @@
   }
 
   .footer-item {
+    text-decoration: none;
     background: transparent;
     color: var(--stone);
     border: none;
@@ -308,3 +309,7 @@
     line-height: var(--lh-tight);
   }
 }
+
+/*add timeful in profile section*/
+/*checkbox filter option for only dates*/
+/*maybe remove time from details row and let the app decide based on avaialbility set on timeful and date duration??*/
