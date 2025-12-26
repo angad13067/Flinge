@@ -1,4 +1,4 @@
-//footer scroll
+//footer scroll///////////////////////////////////////////////
 
 const footer = document.querySelector(".site-footer");
 
@@ -28,3 +28,5 @@ function onScroll() {
 }
 
 window.addEventListener("scroll", onScroll, { passive: true });
+
+///////////////////////////////////////////////
