@@ -33,51 +33,49 @@ window.addEventListener("scroll", onScroll, { passive: true });
 const loader = document.querySelector(".loader");
 
 function showLoader() {
-  loader.classList.remove("loader-hidden");
+  loader?.classList.remove("loader-hidden");
 }
 
 function hideLoader() {
-  loader.classList.add("loader-hidden");
+  loader?.classList.add("loader-hidden");
 }
 
-//hide animation on first page load
+// Hide loader on normal load AND when coming back (Back/Forward cache)
 window.addEventListener("load", hideLoader);
+window.addEventListener("pageshow", hideLoader);
 
-// Hide loader when the whole page (including images) is loaded
-window.addEventListener("load", () => {
-  hideLoader();
-});
+// helper for delays
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
 
-// Buttons/////////////////////////
-document.querySelector("#like-btn").addEventListener("click", async () => {
+// Buttons
+document.querySelector("#like-btn")?.addEventListener("click", async () => {
   showLoader();
-
-  // do your real work here (changing card, fetching data, etc.)
-  await new Promise((resolve) => setTimeout(resolve, 1400));
-
+  await sleep(1400);
   hideLoader();
 });
 
-document.querySelector("#skip-btn").addEventListener("click", async () => {
+document.querySelector("#skip-btn")?.addEventListener("click", async () => {
   showLoader();
-  await new Promise((resolve) => setTimeout(resolve, 1400));
+  await sleep(1400);
   hideLoader();
 });
 
-document.querySelector("#undo-btn").addEventListener("click", async () => {
+document.querySelector("#undo-btn")?.addEventListener("click", async () => {
   showLoader();
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+  await sleep(1000);
   hideLoader();
 });
 
+// Footer links (show loader, then navigate)
 document.querySelectorAll(".footer-item").forEach((link) => {
   link.addEventListener("click", async (e) => {
     e.preventDefault();
-    // stop the link from navigating right away
 
     showLoader();
-    await new Promise((resolve) => setTimeout(resolve, 1400));
+    await sleep(1400);
 
-    window.location.href = link.href; // navigate after the delay
+    window.location.href = link.href;
   });
 });
