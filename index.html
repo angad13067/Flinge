@@ -13,6 +13,9 @@
 
   </head>
   <body>
+    <!--class="loader loader-hidden" -->
+    <div class="loader " aria-label="loading"></div>
+    
     <header class="site-header">
       <div class="site-header__inner">
         <h1>Flinge</h1>
@@ -37,7 +40,7 @@
       <div class="card-container">
         <div class="card-header">
           <h2 class="card-title">Arcade</h2>
-          <button class="round-btn undo-btn" aria-label="Undo">
+          <button id="undo-btn"class="round-btn undo-btn " aria-label="Undo">
             <img src="assets/undo.png" alt="Undo" />
           </button>
         </div>
@@ -52,10 +55,10 @@
             />
 
             <div class="card-actions">
-              <button class="round-btn skip-btn" aria-label="Skip">
+              <button id="skip-btn" class="round-btn skip-btn" aria-label="Skip">
                 <img src="assets/cancel.png" alt="Skip" />
               </button>
-              <button class="round-btn like-btn" aria-label="Like">
+              <button id="like-btn" class="round-btn like-btn" aria-label="Like">
                 <img src="assets/heart.png" alt="Like" />
               </button>
             </div>
@@ -79,21 +82,38 @@
       </div>
 
     </main> 
-<footer class="site-footer">
+<footer class="site-footer" >
   <nav class="site-footer-inner" aria-label="Footer navigation">
     <a class="footer-item" href="index.html">
-      <img class="bottom-menu-icon" src="assets/f.png" alt="Home">
+      <img class="footer-menu-icon" src="assets/f.png" alt="Home">
  
     </a>
     <a class="footer-item" href="matches.html">
-      <img class="bottom-menu-icon"src="assets/heart.png" alt="matches">
+      <img class="footer-menu-icon"src="assets/heart.png" alt="matches">
      
     </a>
     <a class="footer-item" href="profile.html">
-      <img class="botton-menu-icon"src="assets/user.png" alt="user">
+      <img class="footer-menu-icon"src="assets/user.png" alt="user">
     
     </a>
 
+    <!--ADDED 
+
+        <a class="footer-item" href="index.html">
+      <img class="footer-menu-icon" src="assets/f.png" alt="Home">
+ 
+    </a>
+
+        <a class="footer-item" href="index.html">
+      <img class="footer-menu-icon" src="assets/f.png" alt="Home">
+ 
+    </a>
+
+        <a class="footer-item" href="index.html">
+      <img class="footer-menu-icon" src="assets/f.png" alt="Home">
+ 
+    </a>
+-->
 
   </nav>
 </footer>
@@ -102,3 +122,11 @@
   </body>
 
 </html>
+
+
+
+
+<!--Create a card option -->
+<!--Database -->
+<!--Share -->
+<!--Login -->
