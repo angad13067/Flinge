@@ -1,21 +1,22 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Flinge</title>
-        <!-- font set up -->
-     <link rel="preconnect" href="https://fonts.googleapis.com"/>
-     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" href="style.css"/>
-
-
+    <!-- font set up -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=DM+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
+  <body data-page="feed">
     <!--class="loader loader-hidden" -->
-    <div class="loader " aria-label="loading"></div>
-    
+    <div class="loader" aria-label="loading"></div>
+
     <header class="site-header">
       <div class="site-header__inner">
         <h1>Flinge</h1>
@@ -30,8 +31,7 @@
             </li>
           </ul>
         </nav>
-      -->
-      </div>
+      --></div>
     </header>
 
     <main>
@@ -39,8 +39,13 @@
 
       <div class="card-container">
         <div class="card-header">
-          <h2 class="card-title">Arcade</h2>
-          <button id="undo-btn"class="round-btn undo-btn " aria-label="Undo">
+          <h2 class="card-title" id="feed-title">Arcade</h2>
+          <button
+            id="undo-btn"
+            class="round-btn undo-btn"
+            aria-label="Undo"
+            data-loader="1000"
+          >
             <img src="assets/undo.png" alt="Undo" />
           </button>
         </div>
@@ -55,49 +60,54 @@
             />
 
             <div class="card-actions">
-              <button id="skip-btn" class="round-btn skip-btn" aria-label="Skip">
+              <button
+                id="skip-btn"
+                class="round-btn skip-btn"
+                aria-label="Skip"
+                data-loader="1400"
+              >
                 <img src="assets/cancel.png" alt="Skip" />
               </button>
-              <button id="like-btn" class="round-btn like-btn" aria-label="Like">
+              <button
+                id="like-btn"
+                class="round-btn like-btn"
+                aria-label="Like"
+                data-loader="1400"
+              >
                 <img src="assets/heart.png" alt="Like" />
               </button>
             </div>
           </div>
-</div>
-          <div class="details-card hinge-card">
-            <div class="detail-row">
-              <span class="icon">📍</span>
-              <span class="detail-row-item">Amusement2020</span>
-            </div>
-            <div class="detail-row">
-              <span class="icon">📅</span>
-              <span class="detail-row-item">Sun, Nov 30</span>
-            </div>
-            <div class="detail-row">
-              <span class="icon">⏰</span>
-              <span class="detail-row-item">1–2 hours</span>
-            </div>
+        </div>
+        <div class="details-card hinge-card">
+          <div class="detail-row">
+            <span class="icon">📍</span>
+            <span class="detail-row-item">Amusement2020</span>
+          </div>
+          <div class="detail-row">
+            <span class="icon">📅</span>
+            <span class="detail-row-item">Sun, Nov 30</span>
+          </div>
+          <div class="detail-row">
+            <span class="icon">⏰</span>
+            <span class="detail-row-item">1–2 hours</span>
           </div>
         </div>
       </div>
+    </main>
+    <footer class="site-footer">
+      <nav class="site-footer-inner" aria-label="Footer navigation">
+        <a class="footer-item" href="index.html" data-loader="1200">
+          <img class="footer-menu-icon" src="assets/f.png" alt="Home" />
+        </a>
+        <a class="footer-item" href="matches.html" data-loader="1200">
+          <img class="footer-menu-icon" src="assets/heart.png" alt="matches" />
+        </a>
+        <a class="footer-item" href="profile.html" data-loader="1200">
+          <img class="footer-menu-icon" src="assets/user.png" alt="user" />
+        </a>
 
-    </main> 
-<footer class="site-footer" >
-  <nav class="site-footer-inner" aria-label="Footer navigation">
-    <a class="footer-item" href="index.html">
-      <img class="footer-menu-icon" src="assets/f.png" alt="Home">
- 
-    </a>
-    <a class="footer-item" href="matches.html">
-      <img class="footer-menu-icon"src="assets/heart.png" alt="matches">
-     
-    </a>
-    <a class="footer-item" href="profile.html">
-      <img class="footer-menu-icon"src="assets/user.png" alt="user">
-    
-    </a>
-
-    <!--ADDED 
+        <!--ADDED 
 
         <a class="footer-item" href="index.html">
       <img class="footer-menu-icon" src="assets/f.png" alt="Home">
@@ -114,19 +124,15 @@
  
     </a>
 -->
-
-  </nav>
-</footer>
-  <script src="script.js" defer></script>
-
+      </nav>
+    </footer>
+    <script src="script.js" defer></script>
   </body>
-
 </html>
 
-
-
-
-<!--Create a card option -->
+<!--Create a card option 
+Add a page flag
+-->
 <!--Database -->
 <!--Share -->
 <!--Login -->
