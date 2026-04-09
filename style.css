@@ -117,7 +117,7 @@
   }
   main {
     width: 100%;
-    padding-bottom: 64px; /*main bottom padding so it doesnt sit under footer*/
+    padding-bottom: 64px; /*main bottom padding so it doesnt sit under footer WAS 64*/
   }
 
   .site-header {
@@ -156,7 +156,7 @@
   .site-footer-inner {
     max-width: 480px;
     margin: 0 auto;
-    padding: 8px 16px;
+    padding: 5px 50px; /*RESIZE FOOTER was 8,16*/
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -169,7 +169,7 @@
     background: transparent;
     color: var(--stone);
     border: none;
-    padding: 8px; /*resizes footer (was 8px) now 40*/
+    padding: 8px; /*resizes footer ICONS (was 8px) now 40. --20 is hingelike*/
     font: inherit;
     cursor: pointer;
   }
@@ -242,7 +242,10 @@
 
   /*shared card style (photo+details)*/
   .hinge-card {
-    border-radius: 24px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
     background: #fff;
     box-shadow: 0 10px 25px grey;
     overflow: hidden;
@@ -306,7 +309,6 @@
     width: 40px;
     height: 40px;
     box-shadow: none;
-    border: 1px solid #e0e0e0;
   }
 
   .addCard-btn {
@@ -324,6 +326,8 @@
   }
 
   .details-card {
+    /*border-top-left-radius: 15px;
+    border-top-right-radius: 15px;*/
     margin-top: 36px; /*space between*/
     padding: 16px 18px;
   }

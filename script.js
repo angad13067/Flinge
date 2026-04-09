@@ -7,6 +7,10 @@ const cards = [
     location: "3350 Blvd. Saint-Martin O, Laval, QC H7T 1A1",
     date: "Sun, Nov 30",
     duration: "1 hour",
+    price: "",
+    hasTag: false,
+    tags: [],
+    isSaved: "",
   },
 
   {
@@ -16,6 +20,10 @@ const cards = [
     location: "1 Pl. Ville-Marie, Montréal, QC H3B 4E8",
     date: "Sun, Nov 30",
     duration: "3 hours",
+    price: "",
+    hasTag: false,
+    tags: [],
+    isSaved: "",
   },
 
   {
@@ -25,6 +33,10 @@ const cards = [
     location: "425 Av. Viger O RC-001, Montreal, Quebec H2Z 1W5",
     date: "Sun, Nov 30",
     duration: "1-2 hours",
+    price: "",
+    hasTag: false,
+    tags: [],
+    isSaved: "",
   },
 
   {
@@ -34,15 +46,22 @@ const cards = [
     location: "303A Brunswick Blvd, Pointe-Claire, Quebec H9R 4Y2",
     date: "Sun, Nov 30",
     duration: "1 hour",
+    price: "",
+    hasTag: false,
+    tags: [],
+    isSaved: "",
   },
 ];
+
+const savedCards = [];
+
 //GENERATE RANDOM INDEX WITHIN AN ARRAY
 const getRandomIndex = (array) => {
   return Math.floor(Math.random() * array.length);
 };
 
 //CARD RENDERING
-//START AT RANDOM CARD AND GO FROM THERE
+//START AT RANDOM CARD AND GOES FROM THERE
 let currentIndex = getRandomIndex(cards); //tracks currently shown card
 const renderedCards = []; //array of already rendered cards to undo
 
@@ -58,19 +77,21 @@ function renderCard() {
 
   //update image
   document.querySelector(".card-photo").src = currentCard.image;
-  document.querySelector(".card-photo").alt = cards.title;
+  document.querySelector(".card-photo").alt = currentCard.image;
 
   //update details (assumes that each detail row item is in order in html)
+  //
   const detailRows = document.querySelectorAll(".detail-row-item");
   detailRows[0].textContent = currentCard.location;
   detailRows[1].textContent = currentCard.date;
   detailRows[2].textContent = currentCard.duration;
+  //
 }
 
 //Initialize the card stack with the first card on page load
 renderCard();
 
-//footer scroll///////////////////////////////////////////////
+//FOOTER SCROLL///////////////////////////////////////////////
 
 const footer = document.querySelector(".site-footer");
 
@@ -121,9 +142,10 @@ function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-// LIKE, CANCEL AND UNDO BUTTONS
+//LIKE, CANCEL AND UNDO BUTTONS/
 
 //LIKE BUTTON
+
 document.querySelector("#like-btn")?.addEventListener("click", async () => {
   showLoader();
   renderedCards.push(currentIndex); //push the liked card into the rendered card
