@@ -156,7 +156,7 @@
   .site-footer-inner {
     max-width: 480px;
     margin: 0 auto;
-    padding: 5px 50px; /*RESIZE FOOTER was 8,16*/
+    padding: 8px 16px; /*RESIZE FOOTER was 8,16*/ /*temp: 5px, 50px*/
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -169,7 +169,7 @@
     background: transparent;
     color: var(--stone);
     border: none;
-    padding: 8px; /*resizes footer ICONS (was 8px) now 40. --20 is hingelike*/
+    padding: 8px; /*resizes footer ICONS (was 8px) now 40. --20 is hingelike || test: 8px revert*/
     font: inherit;
     cursor: pointer;
   }
