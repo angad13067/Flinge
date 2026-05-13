@@ -10,7 +10,7 @@ const cards = [
     price: "",
     hasTag: false,
     tags: [],
-    isSaved: "",
+    isLiked: false,
   },
 
   {
@@ -23,7 +23,7 @@ const cards = [
     price: "",
     hasTag: false,
     tags: [],
-    isSaved: "",
+    isLiked: false,
   },
 
   {
@@ -36,7 +36,7 @@ const cards = [
     price: "",
     hasTag: false,
     tags: [],
-    isSaved: "",
+    isLiked: false,
   },
 
   {
@@ -49,11 +49,9 @@ const cards = [
     price: "",
     hasTag: false,
     tags: [],
-    isSaved: "",
+    isLiked: false,
   },
 ];
-
-const savedCards = [];
 
 //GENERATE RANDOM INDEX WITHIN AN ARRAY
 const getRandomIndex = (array) => {
@@ -148,9 +146,16 @@ function sleep(ms) {
 
 document.querySelector("#like-btn")?.addEventListener("click", async () => {
   showLoader();
-  renderedCards.push(currentIndex); //push the liked card into the rendered card
-  currentIndex++; //move on to next card
-  //what happens if you liked the last card in the stack
+
+  cards[currentIndex].isLiked = true;
+
+  renderedCards.push({
+    index: currentIndex,
+    action: "like",
+  });
+
+  currentIndex++;
+
   if (currentIndex >= cards.length) {
     currentIndex = 0;
   }
@@ -162,9 +167,14 @@ document.querySelector("#like-btn")?.addEventListener("click", async () => {
 //SKIP BUTTON
 document.querySelector("#skip-btn")?.addEventListener("click", async () => {
   showLoader();
-  renderedCards.push(currentIndex); //push the skipped card into the rendered card
-  currentIndex++; //move on to next card
-  //what happens if you skipped the last card in the stack
+
+  renderedCards.push({
+    index: currentIndex,
+    action: "skip",
+  });
+
+  currentIndex++;
+
   if (currentIndex >= cards.length) {
     currentIndex = 0;
   }
@@ -176,9 +186,17 @@ document.querySelector("#skip-btn")?.addEventListener("click", async () => {
 //UNDO BUTTON
 document.querySelector("#undo-btn")?.addEventListener("click", async () => {
   showLoader();
+
   if (renderedCards.length > 0) {
-    currentIndex = renderedCards.pop();
+    const previousAction = renderedCards.pop();
+
+    currentIndex = previousAction.index;
+
+    if (previousAction.action === "like") {
+      cards[currentIndex].isLiked = false;
+    }
   }
+
   await sleep(1000);
   renderCard();
   hideLoader();
@@ -207,3 +225,7 @@ document.querySelectorAll(".footer-item").forEach((link) => {
     window.location.href = link.href;
   });
 });
+
+function getLikedCards() {
+  return cards.filter((card) => card.isLiked);
+}
