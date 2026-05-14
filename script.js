@@ -11,6 +11,7 @@ const cards = [
     hasTag: false,
     tags: [],
     isLiked: false,
+    isSkipped: false,
   },
 
   {
@@ -24,6 +25,7 @@ const cards = [
     hasTag: false,
     tags: [],
     isLiked: false,
+    isSkipped: false,
   },
 
   {
@@ -37,6 +39,7 @@ const cards = [
     hasTag: false,
     tags: [],
     isLiked: false,
+    isSkipped: false,
   },
 
   {
@@ -50,11 +53,15 @@ const cards = [
     hasTag: false,
     tags: [],
     isLiked: false,
+    isSkipped: false,
   },
 ];
 
 //GENERATE RANDOM INDEX WITHIN AN ARRAY
 const getRandomIndex = (array) => {
+  if (array.length === 0) {
+    return 0;
+  }
   return Math.floor(Math.random() * array.length);
 };
 
@@ -63,10 +70,53 @@ const getRandomIndex = (array) => {
 let currentIndex = getRandomIndex(cards); //tracks currently shown card
 const renderedCards = []; //array of already rendered cards to undo
 
-function renderCard() {
-  if (currentIndex < 0 || currentIndex >= cards.length) {
-    currentIndex = 0;
+//prevents looping if all cards are liked or skipped
+function getNextAvailableIndex() {
+  if (cards.length === 0) {
+    return -1;
   }
+
+  for (let i = 0; i < cards.length; i++) {
+    if (currentIndex < 0 || currentIndex >= cards.length) {
+      currentIndex = 0;
+    }
+
+    const currentCard = cards[currentIndex];
+
+    if (!currentCard.isLiked && !currentCard.isSkipped) {
+      return currentIndex;
+    }
+
+    currentIndex++;
+  }
+  return -1;
+}
+
+function clearCard(message) {
+  document.querySelector("#feed-title").textContent = message;
+  document.querySelector(".card-photo").src = "";
+  document.querySelector(".card-photo").alt = "";
+
+  const detailRows = document.querySelectorAll(".detail-row-item");
+  detailRows.forEach((row) => {
+    row.textContent = "";
+  });
+}
+
+function renderCard() {
+  if (cards.length === 0) {
+    clearCard("No cards available");
+    return;
+  }
+
+  const nextIndex = getNextAvailableIndex();
+
+  if (nextIndex === -1) {
+    clearCard("No more cards");
+    return;
+  }
+
+  currentIndex = nextIndex;
 
   const currentCard = cards[currentIndex];
 
@@ -168,6 +218,8 @@ document.querySelector("#like-btn")?.addEventListener("click", async () => {
 document.querySelector("#skip-btn")?.addEventListener("click", async () => {
   showLoader();
 
+  cards[currentIndex].isSkipped = true;
+
   renderedCards.push({
     index: currentIndex,
     action: "skip",
@@ -194,6 +246,10 @@ document.querySelector("#undo-btn")?.addEventListener("click", async () => {
 
     if (previousAction.action === "like") {
       cards[currentIndex].isLiked = false;
+    }
+
+    if (previousAction.action === "skip") {
+      cards[currentIndex].isSkipped = false;
     }
   }
 
