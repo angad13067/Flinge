@@ -130,9 +130,10 @@ function renderCard() {
   //update details (assumes that each detail row item is in order in html)
   //
   const detailRows = document.querySelectorAll(".detail-row-item");
-  detailRows[0].textContent = currentCard.location;
-  detailRows[1].textContent = currentCard.date;
-  detailRows[2].textContent = currentCard.duration;
+  /*detailRows[0].textContent = currentCard.tag;*/
+  detailRows[1].textContent = currentCard.location;
+  detailRows[2].textContent = currentCard.date;
+  detailRows[3].textContent = currentCard.duration;
   //
 }
 
